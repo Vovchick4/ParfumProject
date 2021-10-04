@@ -1,0 +1,60 @@
+.content_active {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 96;
+  width: 250px;
+  color: var(--main-text-color);
+  background-color: rgba(168, 168, 168, 0.34);
+  filter: brightness(1);
+  transition: filter 0.75ms;
+}
+
+.content_active:hover {
+  filter: brightness(10);
+}
+
+.dimmer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 95;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.content_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.userIcon {
+  position: fixed;
+  top: 40px;
+  left: 400px;
+  z-index: 96;
+  font-weight: 600;
+  color: wheat;
+}
+
+.logo {
+  margin-bottom: 40px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px 0;
+}

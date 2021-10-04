@@ -1,0 +1,55 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 25px 0;
+  height: 100px;
+  background-color: transparent;
+  color: var(--main-text-color);
+  transition: color 0.83s;
+}
+
+.header_darkMode {
+  composes: header;
+  color: var(--bg-light-color);
+}
+
+.logo {
+  padding: 10px 0;
+  font-size: 28px;
+  font-style: italic;
+  font-weight: 700;
+  border-bottom: none;
+  z-index: 96;
+}
+
+.navLinkLogoActiveClassName {
+  composes: logo;
+  border-bottom: 4px solid var(--main-color);
+}
+
+.navlinks {
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-size: 16px;
+  border-bottom: none;
+}
+
+.navlinksActiveClassName {
+  composes: navlinks;
+  border-bottom: 4px solid var(--main-color);
+}
+
+.navlinks:not(:first-child) {
+  margin-left: 50px;
+}
+
+.hamburger {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 10px;
+}

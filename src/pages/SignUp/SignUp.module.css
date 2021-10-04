@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: var(--main-text-color);
+  text-align: center;
+}
+
+.form {
+  width: 434px;
+}

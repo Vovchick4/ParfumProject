@@ -1,0 +1,26 @@
+.content_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: wheat;
+  background-color: transparent;
+  border: 1px solid darkgray;
+  padding: 40px;
+}
+
+.indeficatorFormContent {
+  display: flex;
+}
+
+.indeficatorForm {
+  margin: 8px 8px;
+  cursor: pointer;
+}
+
+.indeficatorActive {
+  margin: 0 8px;
+  color: brown;
+  cursor: pointer;
+}

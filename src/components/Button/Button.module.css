@@ -1,0 +1,32 @@
+.content {
+  padding: 40px 120px;
+}
+
+.button {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 999px;
+  background-color: var(--bg-dark-liner-color);
+  color: var(--main-text-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.75ms, background-color 1s;
+}
+
+.button:hover {
+  color: var(--main-color);
+  background-color: var(--bg-light-color);
+}
+
+.button_text {
+  font-size: 18px;
+}
+
+.arrow {
+  display: flex;
+  margin-left: 15px;
+  font-size: 22px;
+}
