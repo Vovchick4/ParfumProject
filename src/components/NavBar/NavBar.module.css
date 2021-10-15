@@ -53,3 +53,7 @@
   cursor: pointer;
   padding: 10px;
 }
+
+.containerDropdown {
+  position: relative;
+}

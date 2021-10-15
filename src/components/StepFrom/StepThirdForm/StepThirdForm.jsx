@@ -15,9 +15,7 @@ export default function StepThirdForm({ formik, confirmUere }) {
         onBlur={formik.handleBlur}
       />
 
-      <Button type="submit" onClick={confirmUere}>
-        Step --- Fouth
-      </Button>
+      <Button type="submit">Step --- Fouth</Button>
     </form>
   );
 }

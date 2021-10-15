@@ -39,17 +39,16 @@ export default function StepForm() {
 
     validationSchema,
     onSubmit: (values) => {
+      setIsValidForm(true);
       dispatch(authActions.addStepForm(values));
       prevStepIncrement();
-      setIsValidForm(true);
     },
   });
 
   function confirmUere() {
-    if (!formik.isValid) {
+    if (formik.isValidating) {
       dispatch(authActions.addStepForm(formik.values));
       prevStepIncrement();
-      setIsValidForm(true);
     } else {
       alert(3443);
     }
@@ -66,7 +65,7 @@ export default function StepForm() {
     },
     {
       id: 3,
-      component: <StepThirdForm formik={formik} confirmUere={confirmUere} />,
+      component: <StepThirdForm formik={formik} />,
     },
     {
       id: 4,

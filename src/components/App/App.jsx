@@ -2,7 +2,7 @@ import { useEffect, useContext } from "react";
 import { Redirect, Switch } from "react-router";
 
 import { Layout, PrivateRoute, PublicRoute } from "..";
-import { useLocalStorageState } from "../../context/DarkModeContext";
+import { DarkModeContext } from "../../context/DarkModeContext";
 
 // import styles from './App.module.css';
 
@@ -10,10 +10,10 @@ import routes from "../../config/routes";
 import urls from "../../config/urls";
 
 export default function App() {
-  const [mode, setMode] = useLocalStorageState("DarkMode", "darkMode");
+  const { mode } = useContext(DarkModeContext);
 
   useEffect(() => {
-    document.body.className = mode;
+    document.body.className = localStorage.getItem("DarkMode");
   }, [mode]);
 
   return (

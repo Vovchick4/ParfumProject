@@ -1,12 +1,9 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router";
 
-import { Container } from "..";
-import {
-  DarkModeContext,
-  useLocalStorageState,
-} from "../../context/DarkModeContext";
+import { Button, Container, Dropdown } from "..";
+import { DarkModeContext } from "../../context/DarkModeContext";
 
 import styles from "./NavBar.module.css";
 
@@ -37,14 +34,48 @@ const links = [
   },
 ];
 
+const valutes = {
+  grivn: {
+    name: "grivna",
+    valuta: "grivn",
+  },
+  euro: {
+    name: "Euro",
+    valuta: "Є",
+  },
+  dolar: {
+    name: "Dolars",
+    valuta: "$",
+  },
+};
+
 export default function NavBar({ isActive, openSideBar }) {
+  const [isOpenDropDown, setIsOpenDropDown] = useState(false);
+  const [valuta, setValuta] = useState(valutes.grivn);
+
   const location = useLocation();
 
-  const { isDarkMode } = useContext(DarkModeContext);
+  const { mode, setMode } = useContext(DarkModeContext);
+
+  function openDropDown() {
+    setIsOpenDropDown(true);
+  }
+
+  function onCloseDropDown() {
+    setIsOpenDropDown(false);
+  }
+
+  function name() {
+    setMode(!mode);
+    localStorage.setItem("DarkMode", mode);
+  }
 
   return (
     <Container>
-      <header className={"darkMode" ? styles.header_darkMode : styles.header}>
+      <header className={!mode ? styles.header_darkMode : styles.header}>
+        <button type="button" onClick={name}>
+          isDarkMode
+        </button>
         <div>
           <NavLink
             className={
@@ -69,6 +100,40 @@ export default function NavBar({ isActive, openSideBar }) {
             </NavLink>
           ))}
         </nav>
+
+        <div className={styles.containerDropdown}>
+          <Button onClick={openDropDown}>
+            {valuta.name}
+            {valuta.valuta}
+          </Button>
+          <Dropdown
+            isOpen={isOpenDropDown}
+            onClose={onCloseDropDown}
+            options={[
+              {
+                id: 1,
+                onClick: () => setValuta(valutes.grivn),
+                label: valutes.grivn.name,
+              },
+              {
+                id: 2,
+                onClick: () => setValuta(valutes.euro),
+                label: valutes.euro.name,
+              },
+              {
+                id: 3,
+                onClick: () => setValuta(valutes.dolar),
+                label: valutes.dolar.name,
+              },
+            ]}
+          />
+        </div>
+
+        <p>
+          {valuta.name === valutes.dolar.name ? 2000 / 28 : "2000"}
+          {valuta.name}
+        </p>
+
         <div
           className={!isActive ? styles.hamburger : null}
           onClick={openSideBar}

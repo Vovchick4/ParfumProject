@@ -6,7 +6,7 @@ export function useLocalStorageState(key, values) {
   const [value, setValue] = useState(
     useState(() => {
       const presistedValue = localStorage.getItem(key);
-      return presistedValue !== null ? presistedValue : values;
+      return presistedValue ? presistedValue : values;
     })
   );
 
@@ -18,14 +18,10 @@ export function useLocalStorageState(key, values) {
 }
 
 export default function DarkModeProvaider({ children }) {
-  const [mode, setMode] = useLocalStorageState("DarkMode", "darkMode");
+  const [mode, setMode] = useState(false);
 
   function darkMode() {
-    if (mode !== "darkMode") {
-      setMode("lightMode");
-    } else {
-      setMode("darkMode");
-    }
+    setMode(!mode);
   }
 
   function isDarkMode() {
@@ -36,7 +32,7 @@ export default function DarkModeProvaider({ children }) {
     }
   }
 
-  const value = { isDarkMode, darkMode };
+  const value = { isDarkMode, darkMode, mode, setMode };
 
   return (
     <DarkModeContext.Provider value={value}>

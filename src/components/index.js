@@ -10,5 +10,6 @@ export { default as Button } from "./Button";
 export { default as FlipCard } from "./FlipCard";
 export { default as StepFrom } from "./StepFrom";
 export { default as Loader } from "./Loader";
+export { default as Dropdown } from "./Dropdown";
 export { default as PublicRoute } from "./PublicRoute";
 export { default as PrivateRoute } from "./PrivateRoute";
